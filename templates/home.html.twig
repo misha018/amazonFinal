@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% include 'header.html.twig' %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Amazon{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('style.css') }}">
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            
+    <main>
+      <div class="hero">
+        <div class="hero-box">
+          You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery. <a href="">Click here to go to amazon.in</a>
+        </div>
+      </div>
+      <div class="shopping">
+        <div class="shop-box">
+          <div class="box-content">
+            <h1>Airpods 2nd generation</h1>
+            <img src="{{ asset('images/airpods2nd.jpeg') }}" alt="Image" >
+            <p>140e</p>
+            {% if not app.user %}
+            <a href="{{ path('create') }}">Add to cart</a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="box-content">
+            <h1>iPhone 14 128GB</h1>
+            <img src="{{ asset('images/iph14.png') }}" alt="Image" >
+            <p>950e</p>
+            <a href="{{ path('create') }}">Add to cart</a>
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="box-content">
+            <h1>iPhone 14 PRO 256GB</h1>
+            <img src="{{ asset('images/iph14pro.jpg') }}" alt="Image" >
+            <p>1150e</p>
+            <a href="{{ path('create') }}">Add to cart</a>
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="box-content">
+            <h1>Airpods Pro</h1>
+            <img src="{{ asset('images/airpodspro.jpeg') }}" alt="Image" >
+            <p>250e</p>
+            <a href="{{ path('create') }}">Add to cart</a>
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="box-content">
+            <h1></h1>
+            
+            <a href=""></a>
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="box-content">
+            <h1></h1>
+            
+            <a href=""></a>
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="box-content">
+            <h1></h1>
+            
+            <a href=""></a>
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="box-content">
+            <h1></h1>
+            
+            <a href=""></a>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+
+<script>
+    document.getElementById('registerButton').addEventListener('click', function() {
+        window.location.href = "{{ path('register') }}";
+    });
+</script>
+    {% include 'footer.html.twig' %}
+  </body>
+        {% endblock %}
+    
+</html>

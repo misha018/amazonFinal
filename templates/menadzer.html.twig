@@ -1,0 +1,34 @@
+{% include 'header.html.twig' %}
+{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('style.css') }}">
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+    {% block content %}
+    <h1>Korisnici</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>ime</th>
+                <th>prezime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.username }}</td>
+                    <td>{{ record.ime }}</td>
+                    <td>{{ record.prezime }}</td>
+                    <td>
+                    <a href="{{ path('record_remove', { 'id': record.id }) }}" onclick="return confirm('Are you sure you want to remove this user?')">Remove</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+

@@ -1,0 +1,16 @@
+
+{% extends 'home.html.twig' %}
+
+
+    {% block body %}
+    <h2>Login</h2>
+    {{ form_start(form, {'attr': {'class': 'form'}, 'method': 'POST'}) }}
+        {{ form_row(form.username) }} <br>
+        {{ form_row(form.password) }} <br>
+        
+    {{ form_end(form) }} <br>
+
+    <p class="account">No account? Go to our <a href="{{ path('create') }}">register page</a></p>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('style.css') }}">
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+<header>
+      <nav class="nav-bar" id="Navigation">
+        <div class="nav-box1 box"><a href="{{ path('home') }}"><img src="{{ asset('images/images.png') }}" alt="Image" style="width:113px;"></a></div>
+        <div class="nav-box2 box">
+          <div class="box2-left">
+            <i
+              class="fa-solid fa-location-dot fa-xl"
+              style="color: #ffffff"
+            ></i>
+          </div>
+          <div class="box2-right">
+            <p class="first-box2">Deliver to</p>
+            <p class="second-box2">Serbia</p>
+          </div>
+        </div>
+        <div class="nav-box3">
+            <select name="" id="" class="nav-select">
+                <option value="">All</option>
+            </select>
+            <input type="search" placeholder="Search Amazon" class="nav-input">
+            <div class="box3-icon">
+                <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #000000;"></i>
+            </div>
+        </div>
+        <div class="nav-box4 box">
+            
+            <select name="" id="" class="box4-select">
+                <option value="">EN</option>
+            </select>
+          </div>
+          <div class="nav-box5 box">
+            <p class="box-first">
+            {% if app.request.attributes.get('_route') not in ['korisnik', 'admin', 'cart', 'menadzer'] %}
+            <a href="{{ path('login') }}">Hello, sign in</a>
+            {% endif %}
+            {% if app.request.attributes.get('_route') not in ['home', 'login', 'create'] and not app.user %}
+            <a href="{{ path('home') }}">Logout</a>
+            {% endif %}
+
+
+            <p class="box-second"></p>
+          </div>
+          <div class="nav-box6 box">
+            <p class="box-first"></p>
+            {% if app.request.attributes.get('_route') not in ['korisnik', 'admin', 'cart', 'menadzer'] %}
+            <a href="{{ path('create') }}">Register</a>
+            {% endif %}
+          </div>
+          <div class="nav-box7 box">
+            
+            {% if app.request.attributes.get('_route') not in ['home', 'admin', 'menadzer', 'create', 'login'] %}
+            <a href="{{ path('cart') }}"<p class="korpa">Cart</p></a>
+            {% endif %}
+          </div>
+      </nav>
+      <div class="panel">
+        <div class="panel-left box">
+          <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+          <p>All</p>
+        </div>
+        <div class="panel-middle">
+          <p class="box">Today's deal</p>
+          <p class="box">Customer Service</p>
+          <p class="box">Registry</p>
+          <p class="box">Gift card</p>
+          <p class="box">Sell</p>
+          </ul>
+        </div>
+        <div class="panel-right box">
+          <p>Shop deals in Electronics</p>
+        </div>
+      </div>
+    </header>

@@ -5,3 +5,38 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+
+create:
+    path: /create
+    controller: App\Controller\MainController::createUser
+    methods: [GET, POST]
+
+list:
+    path: /list
+    controller: App\Controller\MainController::listUsers
+    methods: [GET]
+
+home:
+    path: /home
+    controller: App\Controller\HomeController::index
+
+login:
+    path: /login
+    controller: App\Controller\MainController::login
+    methods: [GET, POST]
+
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::admin
+
+create_record:
+  path: /create-record
+  controller: App\Controller\AdminController::createRecord
+
+clear_cart:
+    path: /cart/clear
+    controller: App\Controller\CartController::clearCart
+
+menadzer:
+    path: /menadzer
+    controller: App\Controller\MenadzerController::menadzer

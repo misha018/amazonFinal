@@ -1,0 +1,24 @@
+{% include 'header.html.twig' %}
+{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('style.css') }}">
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+
+        {% block content %}
+    <h1>Your Cart</h1>
+    
+    {% if products is empty %}
+        <p>Your cart is empty.</p>
+    {% else %}
+        <ul>
+            {% for product in products %}
+                <li>{{ product.ime }} - Price: {{ product.cena }} e - Kolicina: {{ product.kolicina }} <br>
+                {{ product.opisProizvoda }}</li>
+            {% endfor %}
+        </ul>
+        
+    {% endif %}
+    
+{% endblock %}
+

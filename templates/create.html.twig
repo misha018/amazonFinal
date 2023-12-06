@@ -1,0 +1,18 @@
+
+
+{% extends 'home.html.twig' %}
+
+{% block body %}
+    <h1>Registruj se</h1>
+
+    {{ form_start(form) }} <br>
+        {{ form_row(form.ime) }} <bR>
+        {{ form_row(form.prezime) }} <br>
+        {{ form_row(form.username) }} <br>
+        {{ form_row(form.password) }} <br>
+
+        <button type="submit" class="registruj">Registruj se</button>
+    {{ form_end(form) }} <br>
+
+    <p class="account">Already have an account? Go to <a href="{{ path('login') }}">login page</a></p>
+{% endblock %}
